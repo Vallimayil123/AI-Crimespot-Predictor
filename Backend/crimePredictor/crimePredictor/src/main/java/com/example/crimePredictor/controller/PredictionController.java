@@ -16,10 +16,13 @@ public class PredictionController {
 
         RestTemplate restTemplate = new RestTemplate();
 
-        String flaskUrl = "http://127.0.0.1:5000/predict";
+        String flaskUrl = System.getenv().getOrDefault(
+                "AI_SERVICE_URL",
+                "http://127.0.0.1:5000"
+        );
 
         return restTemplate.postForObject(
-                flaskUrl,
+                flaskUrl + "/predict",
                 request,
                 Map.class
         );
