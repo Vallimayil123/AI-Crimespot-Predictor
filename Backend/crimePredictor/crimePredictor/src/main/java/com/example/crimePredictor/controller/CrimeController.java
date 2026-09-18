@@ -1,7 +1,7 @@
 package com.example.crimePredictor.controller;
 
 import com.example.crimePredictor.entity.Crime;
-import com.example.crimepredictor.service.CrimeService;
+import com.example.crimePredictor.service.CrimeService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
