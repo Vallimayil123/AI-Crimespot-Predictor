@@ -17,11 +17,13 @@ function CrimeMap({ crimes }) {
             <HeatLayer crimes={crimes} />
 
             {/* Crime Markers */}
-            {crimes.map((crime) => (
-                <Marker
-                    key={crime.id}
-                    position={[crime.latitude, crime.longitude]}
-                >
+            {crimes
+    .filter(crime => crime.latitude != null && crime.longitude != null)
+    .map((crime) => (
+    <Marker
+        key={crime.id}
+        position={[crime.latitude, crime.longitude]}
+    >
                     <Popup>
                         <b>{crime.crimeType}</b>
                         <br />

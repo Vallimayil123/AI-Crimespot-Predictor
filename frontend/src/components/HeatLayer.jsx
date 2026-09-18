@@ -11,11 +11,14 @@ function HeatLayer({ crimes }) {
 
         if (!crimes || crimes.length === 0) return;
 
-        const heatPoints = crimes.map(crime => [
-            crime.latitude,
-            crime.longitude,
-            1
-        ]);
+        const heatPoints = crimes
+    .filter(crime => crime.latitude != null && crime.longitude != null)
+    .map(crime => [
+        crime.latitude,
+        crime.longitude,
+        1
+    ]);
+    if (heatPoints.length === 0) return;
 
         const heat = L.heatLayer(heatPoints, {
             radius: 30,
