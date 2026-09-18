@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Dashboard from "./pages/Dashboard";
 import Prediction from "./pages/Prediction";
@@ -7,7 +7,7 @@ function App() {
 
     return (
 
-        <BrowserRouter>
+        <HashRouter>
 
             <Routes>
 
@@ -17,7 +17,7 @@ function App() {
 
             </Routes>
 
-        </BrowserRouter>
+        </HashRouter>
 
     );
 
