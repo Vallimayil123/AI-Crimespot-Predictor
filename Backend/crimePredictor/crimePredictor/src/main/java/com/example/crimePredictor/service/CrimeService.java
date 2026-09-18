@@ -1,4 +1,4 @@
-package com.example.crimepredictor.service;
+package com.example.crimePredictor.service;
 
 import com.example.crimePredictor.entity.Crime;
 import com.example.crimePredictor.repository.CrimeRepository;
