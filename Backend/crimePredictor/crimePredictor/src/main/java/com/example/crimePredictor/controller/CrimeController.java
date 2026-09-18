@@ -3,8 +3,10 @@ package com.example.crimePredictor.controller;
 import com.example.crimePredictor.entity.Crime;
 import com.example.crimepredictor.service.CrimeService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/crimes")
@@ -36,5 +38,21 @@ public class CrimeController {
     public String deleteCrime(@PathVariable Long id) {
         service.deleteCrime(id);
         return "Crime deleted successfully";
+    }
+
+    // AI Prediction
+    @PostMapping("/../predict")
+    public Map<String, Object> predictCrime(
+            @RequestBody Map<String, Object> request) {
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        String flaskUrl = "http://127.0.0.1:5000/predict";
+
+        return restTemplate.postForObject(
+                flaskUrl,
+                request,
+                Map.class
+        );
     }
 }

@@ -29,12 +29,14 @@ function Prediction() {
         setPrediction(response.data);
 
     } catch (error) {
+    console.error("Prediction error:", error);
 
-        alert("Prediction failed");
-
-        console.error(error);
-
+    if (error.response) {
+        alert(error.response.data.message || "Prediction failed");
+    } else {
+        alert("Cannot connect to prediction service");
     }
+}
 
 };
 
@@ -63,8 +65,6 @@ function Prediction() {
                             <option>Chennai</option>
                             <option>Coimbatore</option>
                             <option>Madurai</option>
-                            <option>Salem</option>
-                            <option>Trichy</option>
                         </select>
 
                     </div>
@@ -82,8 +82,6 @@ function Prediction() {
                             <option>Theft</option>
                             <option>Robbery</option>
                             <option>Assault</option>
-                            <option>Kidnapping</option>
-                            <option>Murder</option>
                         </select>
 
                     </div>

@@ -1,5 +1,5 @@
-# Java
-backend/target/
+# Java / Maven
+**/target/
 
 # React
 frontend/node_modules/
@@ -17,3 +17,10 @@ ai/__pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+
+
+
+
+
+
